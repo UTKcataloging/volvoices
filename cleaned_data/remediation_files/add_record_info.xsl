@@ -15,24 +15,10 @@
         </xsl:copy>
     </xsl:template>
     
-    <xsl:variable name="filename" select="collection('../modsxml/?select=*.xml')"/>
-    
-    <xsl:template name="main">
-        <xsl:for-each select="$filename">
-            <xsl:variable name="fn" select="normalize-space(tokenize(document-uri(.), '/')[last()])"/>
-            <!--<xsl:value-of select="concat($fn, '&#10;')"/>-->
-            <xsl:result-document href="{concat('./output/',$fn)}">
-                <xsl:copy>
-                    <xsl:apply-templates select="@* | node()"/>
-                </xsl:copy>
-            </xsl:result-document>
-        </xsl:for-each>
-    </xsl:template>
-    
     <!-- add data provider and other recordInfo things -->
     <xsl:template match="mods">
         <xsl:copy>
-            <xsl:apply-templates/>
+            <xsl:apply-templates select="@* | node()"/>
             <recordInfo>
                 <recordContentSource>University of Tennessee, Knoxville. Libraries</recordContentSource>
                 <languageOfCataloging>
