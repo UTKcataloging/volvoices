@@ -2,7 +2,7 @@
 
 ## Add Globals
 MISSING_DATA_PROVIDERS="../missing_recordInfo"
-SAXON="java -jar /Users/mark/bin/saxon-8.7.jar"
+SAXON="java -Xmx4048m -jar /Users/mark/bin/saxon-8.7.jar"
 DESTINATION="output"
 
 for filename in ${MISSING_DATA_PROVIDERS}/*.xml; do
